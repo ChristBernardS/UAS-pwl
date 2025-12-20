@@ -43,7 +43,6 @@
                                         <i class="bi bi-search"></i> Search
                                     </button>
                                 </div>
-                                <!-- Instant Search Results Container -->
                                 <div id="search-results" class="dropdown-menu w-100 shadow-lg border-0 mt-1" style="display: none; position: absolute; top: 100%; left: 0; z-index: 1000; border-radius: 15px; overflow: hidden;"></div>
                             </div>
                         </form>
@@ -109,21 +108,19 @@
                             resultsContainer.appendChild(div);
                             resultsContainer.style.display = 'block';
                         } else {
-                             resultsContainer.style.display = 'none';
+                            resultsContainer.style.display = 'none';
                         }
                     })
                     .catch(err => console.error(err));
-            }, 300); // Wait 300ms after user stops typing
+            }, 300);
         });
 
         function setSearch(text) {
             searchInput.value = text;
             resultsContainer.style.display = 'none';
-            // Trigger a real search
             document.querySelector('form').submit();
         }
         
-        // Hide dropdown when clicking outside
         document.addEventListener('click', function(e) {
             if (!searchInput.contains(e.target) && !resultsContainer.contains(e.target)) {
                 resultsContainer.style.display = 'none';

@@ -11,13 +11,13 @@
 |
 */
 
-Route::get('/live-search', "VisitorController@liveSearch");
 
 Route::group(['middleware' => 'guest'], function () {
     Route::get('/login', "AuthController@login")->name('login');
     Route::post('/ceklogin',"AuthController@cekLogin");
     Route::get('/', "VisitorController@searchdata");
     Route::get('actsearchdata', "VisitorController@actsearchdata");
+    Route::get('/live-search', "VisitorController@liveSearch");
 });
 
 
